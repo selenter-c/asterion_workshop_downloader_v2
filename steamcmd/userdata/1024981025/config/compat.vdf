@@ -1,0 +1,158 @@
+"platform_overrides"
+{
+	"257850"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"346110"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"377160"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"418370"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"553850"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"594650"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"627270"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"883710"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"934700"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"952060"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"990080"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"1086940"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"1091500"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"1172470"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"1196590"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"1328670"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"1446780"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"1501750"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"1551360"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"1778820"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"2050650"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"2073850"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"2131640"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"2131650"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"2161700"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"2215430"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"2389670"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"2395210"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"2420110"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"2563970"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+	"2828500"
+	{
+		"dest"		"linux"
+		"src"		"windows"
+	}
+}

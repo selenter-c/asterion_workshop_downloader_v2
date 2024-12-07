@@ -1,0 +1,45 @@
+"UserRoamingConfigStore"
+{
+	"Software"
+	{
+		"Valve"
+		{
+			"Steam"
+			{
+				"StartMenuShortcutCheck"		"0"
+				"DesktopShortcutCheck"		"1"
+				"SurveyDate"		"2022-03-07"
+				"SurveyDateVersion"		"7876628584337068768"
+				"SteamDefaultDialog"		"#app_store"
+				"ShowScreenshotManager"		"0"
+				"apps"
+				{
+					"945360"
+					{
+						"hidden"		"1"
+					}
+					"4000"
+					{
+						"tags"
+						{
+							"0"		"favorite"
+						}
+					}
+				}
+			}
+		}
+	}
+	"JSClientStorage"
+	{
+		"spotlight.review.4000"
+		{
+			"rgPromptDismissals"		"4"
+			"bWasAskedToRevise"		"0"
+		}
+		"spotlight.review.730"
+		{
+			"rgPromptDismissals"		"3"
+			"bWasAskedToRevise"		"0"
+		}
+	}
+}

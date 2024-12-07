@@ -1,0 +1,34 @@
+"Filters"
+{
+	"favorites"
+	{
+	}
+	"history"
+	{
+		"1"
+		{
+			"name"		"188.120.245.50:27015"
+			"address"		"188.120.245.50:27015"
+			"LastPlayed"		"1691312488"
+			"appid"		"0"
+			"AccountID"		"0"
+		}
+		"2"
+		{
+			"name"		"82.146.48.164:27015"
+			"address"		"82.146.48.164:27015"
+			"LastPlayed"		"1673032681"
+			"appid"		"0"
+			"AccountID"		"0"
+		}
+		"3"
+		{
+			"name"		"194.93.2.192:27015"
+			"address"		"194.93.2.192:27015"
+			"LastPlayed"		"1688231677"
+			"appid"		"0"
+			"AccountID"		"0"
+		}
+	}
+	"lastupdate"		"1692030916"
+}

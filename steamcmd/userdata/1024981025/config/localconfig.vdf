@@ -1,0 +1,128 @@
+"UserLocalConfigStore"
+{
+	"Broadcast"
+	{
+		"Permissions"		"1"
+	}
+	"friends"
+	{
+		"1024981025"
+		{
+			"NameHistory"
+			{
+				"0"		"Бернаршка"
+			}
+			"avatar"		"18a58afbf4613959c80ab9bb410d1a0fe9db5efc"
+			"name"		"Бернаршка"
+		}
+		"PersonaName"		"Бернаршка"
+		"communitypreferences"		"18002000280130013800"
+		"contentdescriptorpreferences"		"0a0208010a0208030a020804"
+		"144238973"
+		{
+			"name"		"felya"
+			"NameHistory"
+			{
+				"0"		"felya"
+			}
+			"avatar"		"417b1c0e65028ada248aa94d63c48c5df2bb07bf"
+		}
+		"197626355"
+		{
+			"name"		"Entropy"
+			"NameHistory"
+			{
+				"0"		"Entropy"
+			}
+			"avatar"		"ee5cc428258a2f7f5775ae66f8bbcde744738e44"
+		}
+		"1191047166"
+		{
+			"name"		"kukuwa"
+			"NameHistory"
+			{
+				"0"		"kukuwa"
+			}
+			"avatar"		"2b26258cc291702ff22855652bf85bcc25583192"
+		}
+		"1133134536"
+		{
+			"name"		"PanikaL190"
+			"NameHistory"
+			{
+				"0"		"PanikaL190"
+			}
+			"avatar"		"63ed5c20d459c4c0d768eaf76becc1445b31b26f"
+		}
+		"PersonaStateDesired"		"0"
+		"103582791465612052"
+		{
+			"name"		"STAR WARS Jedi: Fallen Order™ "
+			"avatar"		"0ea1d285a8ee6fbeef0e8f7f3b2d7fa4cbcb423b"
+		}
+	}
+	"ParentalSettings"
+	{
+		"Settings"		"0921f8173d000000004800"
+		"Signature"		"281717f7a59fd19cef3d24677b7feddca8facaa6be9f3d9ab28176e1c3058d5c8e2ef50545b7d21b137aa00396f70623015a30992f5f66c4040d129cd0af504f1f9724c59675c0aecb1045ebfa9556a90067ff754ac0104dd7295f9e139372a899601006beb416c3511ce0512c36f76e4ef455e5fb042da051195f2d6ac91c65988548f9b00197f8d2a3def2e592f8a89597c8a5b93f911b7e7c76c8559310eea4db95dd7ee64332b67b7707d3d086445e2ba8d4a1116f2ac7ed7817ff8a9915008f2a3c04e3714efd3df6e1060af2d2209320056000dceec9d6fd1e33193e204b35182cfad3965a375923505a6b512414e46f65cf503a773db698dd7e91c1ee"
+	}
+	"Offline"
+	{
+		"Ticket"		"08a1f0dfe80315e164fa66"
+		"Signature"		"203cbdc46b7f6330b447e224e765c711e4a87e274bb8b10e1a22ad7acbb5ea3dc453c28414f8e3205edbaa19384b4bf8292a069be1738322775817b2d299559424ceb1f932505c7b1184a6246728e894545f48349457099b158107189dc42acb25ad44d32a3287ed3a14deb8ba489088223711f328d5850a439c19de58639f412833bcd29667d7fbfef140f8d3035da6042f02badd2822fde8669e6643ebeb59f42dc184b0f6562433e52050ac0a554467756d3d8fde070e2ed8af8c68f2fd23f4133554b4e36d611d7e399e488b5dc9a8029b8e3e6e62c91ac59e052420e7890f6b2c6cbeb85638578a80acf9e53cf7f1f72c58ad155b089a00889f56711fdb"
+		"EncryptedTicket"		"0a20cf5f0910c5b73db30a73a0bbc823dcf3956588c473cd4fb4175856338c485b7e128002203cbdc46b7f6330b447e224e765c711e4a87e274bb8b10e1a22ad7acbb5ea3dc453c28414f8e3205edbaa19384b4bf8292a069be1738322775817b2d299559424ceb1f932505c7b1184a6246728e894545f48349457099b158107189dc42acb25ad44d32a3287ed3a14deb8ba489088223711f328d5850a439c19de58639f412833bcd29667d7fbfef140f8d3035da6042f02badd2822fde8669e6643ebeb59f42dc184b0f6562433e52050ac0a554467756d3d8fde070e2ed8af8c68f2fd23f4133554b4e36d611d7e399e488b5dc9a8029b8e3e6e62c91ac59e052420e7890f6b2c6cbeb85638578a80acf9e53cf7f1f72c58ad155b089a00889f56711fdb1806220838e045b66b1b987b280432085a5976e64b9e9fd7"
+		"EncryptedSignature"		"203cbdc46b7f6330b447e224e765c711e4a87e274bb8b10e1a22ad7acbb5ea3dc453c28414f8e3205edbaa19384b4bf8292a069be1738322775817b2d299559424ceb1f932505c7b1184a6246728e894545f48349457099b158107189dc42acb25ad44d32a3287ed3a14deb8ba489088223711f328d5850a439c19de58639f412833bcd29667d7fbfef140f8d3035da6042f02badd2822fde8669e6643ebeb59f42dc184b0f6562433e52050ac0a554467756d3d8fde070e2ed8af8c68f2fd23f4133554b4e36d611d7e399e488b5dc9a8029b8e3e6e62c91ac59e052420e7890f6b2c6cbeb85638578a80acf9e53cf7f1f72c58ad155b089a00889f56711fdb"
+	}
+	"apptickets"
+	{
+		"7"		"320000000400000021f8173d0100100107000000c9e81c685c60021a00000000e164fa6661141667010000000000000000009d061c979b6b53302bcf5cbe300a5022e84f6d605f67f164cfef49c1947f67672f003ba015513f9b7a397bcccf12be1b7a315180bde293aa8a4930c459fb12fdd902744dd2c78968e624ba64e7a43dc14b07781ebcc3f5a159e7c64698ffa284aff07dfd6d566655d469b7edc18c90ee03d1a04982aaa7ac4510fbc36ac80198"
+	}
+	"AppInfoChangeNumber"		"25454774"
+	"CloudKey"		"0100000092f96af0efd2b35fd6319345bd18198d57dfa28cbc240c971c59cddc8f993f3aa682433c"
+	"CloudKeyCRC"		"-1194761797"
+	"Software"
+	{
+		"Valve"
+		{
+			"Steam"
+			{
+				"apps"
+				{
+					"7"
+					{
+						"cloud"
+						{
+							"last_sync_state"		"synchronized"
+						}
+					}
+					"440"
+					{
+						"LastPlayed"		"1628518708"
+						"Playtime"		"65442"
+					}
+					"730"
+					{
+						"LastPlayed"		"1592733057"
+						"Playtime"		"6717"
+					}
+					"4000"
+					{
+						"LastPlayed"		"1722892725"
+						"Playtime"		"116619"
+					}
+					"632810"
+					{
+						"LastPlayed"		"1608993367"
+						"Playtime"		"4"
+					}
+					"943700"
+					{
+						"LastPlayed"		"1692124268"
+						"Playtime"		"1374"
+					}
+				}
+				"LastPlayedTimesSyncTime"		"1722892725"
+			}
+		}
+	}
+}
