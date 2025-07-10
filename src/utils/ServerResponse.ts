@@ -32,20 +32,42 @@ export default abstract class ServerResponse {
     }
 
     public async get(url : string): Promise<void> {
-        this.server.app.get(url, (req: Request, res: Response) => {
-            this.log(req)
-            this.action(req, res)
+        this.server.app.get(url, async (req: Request, res: Response) => {
+            try {
+                this.log(req)
+
+                await this.action(req, res)
+            } catch (error) {
+                this.handleError(error, req, res)
+            }
         })
 
         logger.info(`[express/handler] Loaded ${url} to method GET`)
     }
 
     public async post(url : string): Promise<void> {
-        this.server.app.post(url, (req: Request, res: Response) => {
-            this.log(req)
-            this.action(req, res)
+        this.server.app.post(url, async (req: Request, res: Response) => {
+            try {
+                this.log(req)
+
+                await this.action(req, res)
+            } catch (error) {
+                this.handleError(error, req, res)
+            }
         })
 
         logger.info(`[express/handler] Loaded ${url} to method POST`)
+    }
+
+    private handleError(error: Error, req: Request, res: Response) {
+        logger.error(`[${this.constructor.name}] Error: ${error.message}`, { 
+            url: req.originalUrl,
+            stack: error.stack 
+        })
+
+        res.status(CODES.SERVER_ERROR).send({
+            code: CODES.SERVER_ERROR,
+            message: "Internal Server Error"
+        })
     }
 }

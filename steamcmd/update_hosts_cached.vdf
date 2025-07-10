@@ -8,16 +8,16 @@
 			{
 				"SteamGlobal"
 				{
-					"cdn.cloudflare.steamstatic.com"
-					{
-						"base_url"		"/client/"
-						"weight"		"1"
-						"https"		"1"
-					}
 					"client-update.akamai.steamstatic.com"
 					{
 						"base_url"		"/"
-						"weight"		"1000"
+						"weight"		"400"
+						"https"		"1"
+					}
+					"client-update.fastly.steamstatic.com"
+					{
+						"base_url"		"/"
+						"weight"		"900"
 						"https"		"1"
 					}
 					"media.st.dl.eccdnx.com"
@@ -56,12 +56,12 @@
 		}
 		"kvsign2"
 		{
-			"Hosts"		"0e7e45f646a5b32a25cdc0e0f1d89b62b4fa8d4327117739599a565e04d568614c594121024a724e41b262b99e2c5ed7820aebbd3c0e6d7ddf4b32f837c45705"
+			"Hosts"		"265f5318b8df1f9fd5b214cfdf4562b3f767727b191a5b0d3e9551aa1151f90aa51909ace48fa041303760cc8c9af9da8cf94bdee4fe129ce62c53502504ef0a"
 		}
 	}
 	"ClientInfo"
 	{
-		"valid_until"		"1727738331"
+		"valid_until"		"1752419671"
 		"ip_country_code"		"RU"
 	}
 }

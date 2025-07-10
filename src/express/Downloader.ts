@@ -1,6 +1,8 @@
 import { Request, Response } from "express"
 import ServerResponse, { CODES } from "../utils/ServerResponse"
 import SteamCmd from "../structures/SteamCmd"
+import logger from "../utils/Logger"
+import { promises } from 'fs'
 
 export default class Downloader extends ServerResponse {
     public async action(req: Request, res: Response) {
@@ -36,10 +38,23 @@ export default class Downloader extends ServerResponse {
         const steamCmd = new SteamCmd({
             platform: "linux"
         })
-        await steamCmd.install(id)
-        await steamCmd.gma_extract(id)
 
-        console.log("complete")
-        // console.log(steamCmd.get_gma_path(id))
+
+        try {
+            const cachePath = steamCmd.get_cache_path(id);
+
+            try {
+                await promises.rm(cachePath, { recursive: true, force: true })
+
+                logger.info(`[downloader] Cleared cache for ${id}`)
+            } catch (error) {}
+
+            await steamCmd.install(id)
+            await steamCmd.gma_extract(id)
+
+            logger.info(`[downloader] Successfully install and extract addon ${id}`)
+        } catch (error) {
+            logger.error(`[downloader] Failed to process ${id}: ${error.message}`)
+        }
     }
 }
