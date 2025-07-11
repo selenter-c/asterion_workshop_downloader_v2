@@ -2,8 +2,8 @@ import { execFile } from "child_process"
 import logger from "../utils/Logger"
 import { readdirSync, writeFileSync, rmSync, promises } from "fs"
 import PATH from "path"
-import { extractGma } from '../libs/gma'
-import lzma from 'lzma-native'
+import { extractGma } from "../libs/gma"
+import lzma from "lzma-native"
 
 const appWorkshopContent = `"AppWorkshop"
 {
@@ -47,7 +47,7 @@ export default class SteamCmd {
     }
 
     public get_workshop_path(): string {
-        return PATH.join(process.env.STEAM_PATH || '', 'steamapps', 'workshop')
+        return PATH.join(process.env.STEAM_PATH || "", "steamapps", "workshop")
     }
 
     public get_addon_path(workshopId : number) : string {
@@ -63,11 +63,11 @@ export default class SteamCmd {
     }
 
     public get_cache_path(workshopId: number): string {
-        return PATH.join(process.env.CACHE_PATH || '', workshopId.toString())
+        return PATH.join(process.env.CACHE_PATH || "", workshopId.toString())
     }
 
     public get_final_addon_path(workshopId: number): string {
-        return PATH.join(process.env.FINAL_ADDONS_PATH || '', workshopId.toString())
+        return PATH.join(process.env.FINAL_ADDONS_PATH || "", workshopId.toString())
     }
 
     public get_gma_path(workshopId : number) : string | void {
@@ -82,80 +82,102 @@ export default class SteamCmd {
 
     private async clean_and_move(source: string, destination: string): Promise<void> {
         try {
-            await this.safe_remove(destination, `Old version in final path`);
-            
-            await promises.mkdir(PATH.dirname(destination), { recursive: true });
-            
-            await promises.rename(source, destination);
+            await this.safe_remove(destination, `Old version in final path`)
+            await promises.mkdir(PATH.dirname(destination), { recursive: true })
+            await promises.rename(source, destination)
 
-            logger.info(`[steamcmd/clean_and_move] Successfully moved to ${destination}`);
+            logger.info(`[steamcmd/clean_and_move] Successfully moved to ${destination}`)
         } catch (error) {
-            logger.error(`[steamcmd/clean_and_move] Move failed: ${error.message}`);
-            throw error;
+            logger.error(`[steamcmd/clean_and_move] Move failed: ${error.message}`)
+
+            throw error
         }
     }
 
     private async safe_remove(path: string, description: string): Promise<void> {
         try {
-            await promises.rm(path, { recursive: true, force: true });
-            logger.info(`[steamcmd/safe_remove] Removed ${description}: ${path}`);
+            await promises.rm(path, { recursive: true, force: true })
+
+            logger.info(`[steamcmd/safe_remove] Removed ${description}: ${path}`)
         } catch (error) {
-            if (error.code !== 'ENOENT') {
-                logger.warn(`[steamcmd/safe_remove] Could not remove ${description}: ${error.message}`);
+            if (error.code !== "ENOENT") {
+                logger.warn(`[steamcmd/safe_remove] Could not remove ${description}: ${error.message}`)
             }
         }
     }
 
-    public async gma_extract(workshopId: number): Promise<void> {
-        const gmaPath = this.get_gma_path(workshopId);
-        if (!gmaPath) throw new Error(`GMA file not found for workshop ID ${workshopId}`);
-
-        const steamCmdAddonPath = this.get_addon_path(workshopId);
-        const cachePath = this.get_cache_path(workshopId);
-        const finalPath = this.get_final_addon_path(workshopId);
-
-        let gmaBuffer: Buffer;
-    
+    private async forceMemoryCleanup(): Promise<void> {
         try {
-            const fileExtension = PATH.extname(gmaPath);
+            if (typeof global.gc === "function") {
+                global.gc()
+                global.gc()
+            }
 
-            if (fileExtension === '.gma') {
-                gmaBuffer = await promises.readFile(gmaPath);
-            } else if (fileExtension === '.bin') {
-                const compressedData = await promises.readFile(gmaPath);
+            await new Promise(resolve => {
+                const cleanupArray = new Array(1e6).fill(null)
+
+                setTimeout(() => {
+                    cleanupArray.length = 0
+                    resolve(null)
+                }, 100)
+            })
+
+            logger.info(`[memory] Forced memory cleanup completed`)
+        } catch (cleanupError) {
+            logger.warn(`[memory] Cleanup error: ${cleanupError.message}`)
+        }
+    }
+
+    public async gma_extract(workshopId: number): Promise<void> {
+        let gmaBuffer: Buffer | null = null
+        const cachePath = this.get_cache_path(workshopId)
+        const steamCmdAddonPath = this.get_addon_path(workshopId)
+        const finalPath = this.get_final_addon_path(workshopId)
+
+        try {
+            const gmaPath = this.get_gma_path(workshopId)
+            if (!gmaPath) throw new Error(`GMA file not found for workshop ID ${workshopId}`)
+
+            const fileExtension = PATH.extname(gmaPath)
+
+            if (fileExtension === ".gma") {
+                gmaBuffer = await promises.readFile(gmaPath)
+            } else if (fileExtension === ".bin") {
+                const compressedData = await promises.readFile(gmaPath)
                 gmaBuffer = await new Promise<Buffer>((resolve, reject) => {
-                    const decompressor = lzma.createDecompressor();
-                    const chunks: Buffer[] = [];
+                    const decompressor = lzma.createDecompressor()
+                    const chunks: Buffer[] = []
                     
-                    decompressor.on('data', (chunk: Buffer) => chunks.push(chunk));
-                    decompressor.on('end', () => resolve(Buffer.concat(chunks)));
-                    decompressor.on('error', reject);
+                    decompressor.on("data", (chunk: Buffer) => chunks.push(chunk))
+                    decompressor.on("end", () => resolve(Buffer.concat(chunks)))
+                    decompressor.on("error", reject)
                     
-                    decompressor.write(compressedData);
-                    decompressor.end();
-                });
+                    decompressor.end(compressedData)
+                })
             } else {
                 throw new Error(`Unsupported file extension: ${fileExtension}`)
             }
 
             if (!gmaBuffer?.length) {
-                throw new Error('Decompressed data is empty')
+                throw new Error("Decompressed data is empty")
             }
 
             await extractGma(gmaBuffer, cachePath)
+
             logger.info(`[steamcmd] Extracted to cache: ${cachePath}`)
 
             await this.clean_and_move(cachePath, finalPath)
-
-            await this.safe_remove(steamCmdAddonPath, `Original SteamCMD folder`);
+            await this.safe_remove(steamCmdAddonPath, `Original SteamCMD folder`)
         } catch (error) {
             await this.safe_remove(cachePath, `Cache folder on error`)
 
             throw error
-            
         } finally {
-            (gmaBuffer as any) = null;
-            if (typeof global.gc === 'function') global.gc();
+            if (gmaBuffer) {
+                (gmaBuffer as any) = null
+            }
+
+            await this.forceMemoryCleanup()
         }
     }
 

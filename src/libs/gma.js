@@ -5,8 +5,10 @@ const path = require('path');
 const mkdirp = async (dir) => {
     try {
         await fs.promises.mkdir(dir, { recursive: true });
-    } catch { }
-}
+    } catch (error) {
+        if (error.code !== 'EEXIST') throw error;
+    }
+};
 
 /** @param buffer {Buffer} */
 const extractGma = async (buffer, outputPath) => {
@@ -63,6 +65,8 @@ const extractGma = async (buffer, outputPath) => {
         await mkdirp(path.dirname(path.resolve(outputPath, file.file)));
         await fs.promises.writeFile(path.resolve(outputPath, file.file), content);
     }
+
+    buffer = null;
 }
 
 module.exports = { extractGma };

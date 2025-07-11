@@ -2,7 +2,7 @@ import { Request, Response } from "express"
 import ServerResponse, { CODES } from "../utils/ServerResponse"
 import SteamCmd from "../structures/SteamCmd"
 import logger from "../utils/Logger"
-import { promises } from 'fs'
+import { promises } from "fs"
 
 export default class Downloader extends ServerResponse {
     public async action(req: Request, res: Response) {

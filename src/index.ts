@@ -15,3 +15,13 @@ async function start_application() {
 }
 
 void start_application()
+
+if (typeof global.gc !== "function") {
+    logger.warn("Garbage collector is not exposed. Run with --expose-gc flag")
+}
+
+setInterval(() => {
+    if (typeof global.gc === "function") {
+        global.gc()
+    }
+}, 300_000).unref()
